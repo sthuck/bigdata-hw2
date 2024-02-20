@@ -6,7 +6,7 @@ def main():
     mongo = connect_to_mongo()
     ingest(mongo)
 
-# 
+
 # 
 if __name__ == '__main__':
     main()
