@@ -51,5 +51,5 @@ jobs:
         with:
           context: ingestor
           push: true
-          tags: ${{ env.REGISTRY }}/ingestor:latest
+          tags: ${{ env.REGISTRY }}/sthuck/ingestor:latest
           labels: ${{ steps.meta.outputs.labels }}
