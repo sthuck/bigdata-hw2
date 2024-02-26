@@ -7,7 +7,6 @@ def connect_to_mongo() -> MongoClient:
     port = int(os.environ.get('MONGO_PORT', '27017'))
     user = os.environ.get('MONGO_USER')
     password = os.environ.get('MONGO_PASS')
-    print(f'mongodb://{user}:{password}@{host}:{port}/admin')
     client = MongoClient(f'mongodb://{user}:{password}@{host}:{port}/admin')
     return client
 

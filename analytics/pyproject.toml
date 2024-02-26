@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "analytics"
+version = "0.1.0"
+description = ""
+authors = ["Aviad Hadad <aviad@sthuck.info>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.0"
+pymongo = "^4.6.2"
+pandas = "^2.2.1"
+matplotlib = "^3.8.3"
+uvicorn = "^0.27.1"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
