@@ -18,4 +18,4 @@ RUN poetry install --no-dev --no-root --no-ansi
 COPY ./ ./
 
 
-CMD ["poetry", "run", "python3", "src/main.py"]
+CMD ["poetry", "run",  "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
