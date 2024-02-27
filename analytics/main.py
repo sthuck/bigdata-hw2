@@ -24,6 +24,7 @@ app = FastAPI(lifespan=lifespan)
 async def root():
     return {"message": "Hello World"}
 
+
 @app.get("/most_average_likes")
 def most_average_likes():
     return get_most_average_likes(connection)
