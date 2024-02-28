@@ -12,6 +12,7 @@ RUN python3 -m pip install --user pipx \
 ENV PATH="${PATH}:/root/.local/bin"
 
 WORKDIR /app
+ENV PYHONPATH="${PYHONPATH}:/app/src"
 COPY pyproject.toml poetry.lock ./
 RUN poetry install --no-dev --no-root --no-ansi
 
