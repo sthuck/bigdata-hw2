@@ -20,16 +20,16 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/analytics/_health")
+async def health():
+    return 'ok'
 
 
-@app.get("/most_average_likes")
+@app.get("/analytics/api/most_average_likes")
 def most_average_likes():
     return get_most_average_likes(connection)
 
-@app.get("/most_average_likes/image")
+@app.get("/analytics/api/most_average_likes/image")
 def most_average_likes_plot():
     buf= get_most_average_likes_plot(connection)
     return StreamingResponse(buf, media_type="image/png")

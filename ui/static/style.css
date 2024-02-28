@@ -1,0 +1,63 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #283776;
+  }
+  
+  .report-picker {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .report-picker label {
+    margin-right: 10px;
+  }
+  
+  #report-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #image-container {
+    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #image-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  

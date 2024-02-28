@@ -20,7 +20,11 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 
-@app.post("/ingest_dataset")
+@app.get("/ingestor/_health")
+def health():
+    return 'ok'
+
+@app.post("/ingestor/api/ingest_dataset")
 def ingest_dataset():
     return ingest(connection)
 

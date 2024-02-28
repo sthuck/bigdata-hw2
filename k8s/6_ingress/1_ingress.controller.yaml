@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  namespace: twit-insigths
+  # annotations:
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /analytics
+            pathType: Prefix
+            backend:
+              service:
+                name: twit-analytics-svc
+                port:
+                  number: 8080
+          - path: /ingestor
+            pathType: Prefix
+            backend:
+              service:
+                name: twit-ingestor-svc
+                port:
+                  number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: twit-ui-svc
+                port:
+                  number: 8080
