@@ -7,7 +7,7 @@ spec:
   selector:
       app: twit-insigths
       sub-app: twit-ingestor
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - name: http
     protocol: TCP
