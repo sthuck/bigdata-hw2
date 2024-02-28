@@ -47,13 +47,13 @@ spec:
           periodSeconds: 10
         readinessProbe:
           httpGet:
-            path: /analytics/_health
+            path: /
             port: 80
           initialDelaySeconds: 5
           timeoutSeconds: 2
           successThreshold: 1
           failureThreshold: 3
-          periodSeconds: 10
+          periodSeconds: 30
         env:
         - name: MONGO_USER
           valueFrom:
