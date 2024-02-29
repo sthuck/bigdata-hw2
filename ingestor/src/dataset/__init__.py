@@ -1,1 +1,1 @@
-from .ingest_dataset import ingest
+from .ingest_dataset import ingest, clear_dataset, is_ingested

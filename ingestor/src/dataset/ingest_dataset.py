@@ -10,7 +10,16 @@ def ingest(mongo: MongoClient):
         for chunk in lazy_chunk(reader, 50):
             collection.insert_many(chunk)
 
+def is_ingested(mongo: MongoClient):
+    db = mongo['insights']
+    collection = db['tweets']
+    return collection.count_documents({}) > 0
 
+def clear_dataset(mongo: MongoClient):
+    db = mongo['insights']
+    collection = db['tweets']
+    collection.delete_many({})
+    
 def lazy_chunk(iterator, chunk_size):
     """Lazily splits an iterator into chunks of a given size.
 
