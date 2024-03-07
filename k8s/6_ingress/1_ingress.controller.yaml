@@ -3,8 +3,9 @@ kind: Ingress
 metadata:
   name: example-ingress
   namespace: twit-insigths
-  # annotations:
-    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "540"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "540"
 spec:
   rules:
     - host: twit-analytics.local
@@ -22,6 +23,13 @@ spec:
             backend:
               service:
                 name: twit-ingestor-svc
+                port:
+                  number: 8080
+          - path: /scraper
+            pathType: Prefix
+            backend:
+              service:
+                name: twit-scraper-svc
                 port:
                   number: 8080
           - path: /

@@ -45,6 +45,8 @@ jobs:
               - 'analytics/**'
             ui:
               - 'ui/**'
+            scraper:
+              - 'twit-scraper/**'
 
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to GitHub Packages.
       # It uses the `context` parameter to define the build's context as the set of files located in the specified path. For more information, see "[Usage](https://github.com/docker/build-push-action#usage)" in the README of the `docker/build-push-action` repository.
@@ -72,5 +74,13 @@ jobs:
           context: ui
           push: true
           tags: ${{ env.REGISTRY }}/sthuck/ui:latest
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and push Docker image (scraper)
+        uses: docker/build-push-action@v5
+        if: ${{ steps.filter.outputs.scraper == 'true' }}
+        with:
+          context: twit-scraper
+          push: true
+          tags: ${{ env.REGISTRY }}/sthuck/scraper:latest
           labels: ${{ steps.meta.outputs.labels }}
   

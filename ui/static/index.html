@@ -13,8 +13,19 @@
   <div class="container">
     <h1 class="title">Report Viewer</h1>
     <div class="block">
+      <h2 class="is-size-3">Ingest Static Data</h2>
       <button class="button is-info" id="ingest-button">Initiate Data Ingestion</button>
       <button class="button is-danger" id="clear-button">Clear Data</button>
+    </div>
+    <div class="block">
+      <h2 class="is-size-3">Ingest Api</h2>
+      <label for ="phrase-search">Phrase to search in twitter:</label>
+      <input id="phrase-search"  class="input">
+      <label for="limit">Limit:</label>
+      <input type="number"  class="input" id="limit" placeholder="Limit">
+    </div>
+    <div class="block">
+      <button class="button is-info" id="ingest-api-button">Ingest From API</button>
     </div>
     <div class="report-picker">
       <label for="report-select">Select Report:</label>

@@ -11,11 +11,18 @@ const ingestButton = document.getElementById('ingest-button');
 /** @type {HTMLButtonElement | null} */
 // @ts-ignore
 const clearButton = document.getElementById('clear-button');
+const ingestApiButton = document.getElementById('ingest-api-button');
 
 /** @type {HTMLSelectElement | null} */
 // @ts-ignore
 const reportSelect = document.getElementById('report-select');
 const imageContainer = document.getElementById('image-container');
+/** @type {HTMLInputElement | null} */
+// @ts-ignore
+const inputPhrases = document.getElementById('phrase-search');
+/** @type {HTMLInputElement | null} */
+// @ts-ignore
+const inputLimit = document.getElementById('limit');
 
 if (!ingestButton || !reportSelect || !imageContainer) {
   throw new Error('Missing required elements');
@@ -24,6 +31,7 @@ if (!ingestButton || !reportSelect || !imageContainer) {
 window.addEventListener('load', () => vm.checkIsDataIngested())
 
 ingestButton.addEventListener('click', () => vm.startDataIngestion());
+ingestApiButton.addEventListener('click', () => vm.scrapeData(inputPhrases.value, inputLimit.value));
 reportSelect.addEventListener('change', () => vm.selectReport(reportSelect.value));
 clearButton.addEventListener('click', () => vm.clearData());
 
